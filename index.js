@@ -37,13 +37,8 @@ function menu() {
 const cadastrarDoador = () => {
     const nome = prompt("Nome").toUpperCase()
     const idade = Number(prompt("Idade"))
-    
-    if (isNaN(idade)) {
-      const idade = Number(prompt("COLOQUE UM NÚMERO SEU INFELIZ"))
-    }
-    
     const peso = Number(prompt("Peso"))
-    const tipoSanguineo = prompt("Tipo Sanguíneo").toUpperCase()
+    const tipoSanguineo = prompt("Tipo Sanguíneo")
     const ultimaDoacao = Number(prompt("Última Doação"))
 
     const doador = {
@@ -51,13 +46,27 @@ const cadastrarDoador = () => {
         idade: idade,
         peso: peso,
         tipoSanguineo: tipoSanguineo,
-        ultimaDoacao: ultimaDoacao,
-    }
+        ultimaDoacao: ultimaDoacao,}
 
-    console.log(doador)
     arrayDoadores.push(doador)
     menu()
 }
 //
+
+
+
+const listarDoadores = () => {
+  let lista = `
+  -----------------------
+  LISTA DE DOADORES
+  -----------------------
+  NOME        | IDADE | PESO | SANGUE | ÚLTIMA DOAÇÃO`
+  
+  for(doador of arrayDoadores) {
+    lista += `${doador.nome} | ${doador.idade} | ${doador.peso} | ${doador.tipoSanguineo} | ${doador.ultimaDoacao}`
+  }
+prompt(lista)
+menu()
+}  
 
 menu()
