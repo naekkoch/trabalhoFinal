@@ -1,4 +1,4 @@
-const arrayDoadores = []
+const arrayDoadores = [];
 
 function menu() {
   const opcao = Number(
@@ -35,29 +35,76 @@ function menu() {
 
 //
 const cadastrarDoador = () => {
-    const nome = prompt("Nome").toUpperCase()
-    const idade = Number(prompt("Idade"))
-    
-    if (isNaN(idade)) {
-      const idade = Number(prompt("COLOQUE UM NÚMERO SEU INFELIZ"))
-    }
-    
-    const peso = Number(prompt("Peso"))
-    const tipoSanguineo = prompt("Tipo Sanguíneo").toUpperCase()
-    const ultimaDoacao = Number(prompt("Última Doação"))
+  const nome = prompt("Nome").toUpperCase();
+  let idade = Number(prompt("Idade"));
+  if (isNaN(idade)) {
+    idade = Number(prompt("COLOQUE UM NÚMERO SEU INFELIZ"));
+  }
+  const peso = Number(prompt("Peso"));
+  const tipoSanguineo = prompt("Tipo Sanguíneo").toUpperCase();
+  const ultimaDoacao = prompt("Última Doação");
 
-    const doador = {
-        nome: nome,
-        idade: idade,
-        peso: peso,
-        tipoSanguineo: tipoSanguineo,
-        ultimaDoacao: ultimaDoacao,
-    }
+  const doador = {
+    nome: nome,
+    idade: idade,
+    peso: peso,
+    tipoSanguineo: tipoSanguineo,
+    ultimaDoacao: ultimaDoacao,
+  };
 
-    console.log(doador)
-    arrayDoadores.push(doador)
-    menu()
-}
+  console.log(doador);
+  arrayDoadores.push(doador);
+  menu();
+};
 //
 
-menu()
+const listarDoadores = () => {
+  let lista = `
+  --------------------
+LISTAGEM DE DOADORES:
+--------------------
+NOME             | IDADE | PESO | TIPO SANGUÍNEO | ÚLTIMA DOAÇÃO
+-----------------------------------------------------------------
+
+`;
+
+  for (doador of arrayDoadores) {
+    lista += `${doador.nome.padEnd(20)}   | ${doador.idade.padEnd(5)}  | ${doador.peso.padEnd(5)}  | ${doador.tipoSanguineo.padEnd(5)}  | ${doador.ultimaDoacao.padEnd(24)} \n`;
+  }
+
+  lista += `-------------------------------------------------------------`
+  prompt(lista);
+  menu();
+};
+ 
+const buscarTipoSangue = () => {
+
+const buscar = prompt("Buscar tipo sanguineo:")
+  const listagem = []
+
+  for(let doador of arrayDoadores){
+    if(doador.tipoSanguineo.toUpperCase() === buscar.toUpperCase()){
+
+    
+    listagem.push(doador)
+    }
+    let lista = `
+  --------------------
+LISTAGEM DE DOADORES:
+--------------------
+NOME             | IDADE | PESO | TIPO SANGUÍNEO | ÚLTIMA DOAÇÃO
+-----------------------------------------------------------------
+
+`;
+
+  for (doador of arrayDoadores) {
+    lista += `${doador.nome.padEnd(20)}   | ${doador.idade.padEnd(5)}  | ${doador.peso.padE(5)}  | ${doador.tipoSanguineo.padEnd(5)}  | ${doador.ultimaDoacao.padEnd(24)} \n`;
+  }
+
+  lista += `-------------------------------------------------------------`
+  prompt(lista);
+  menu();
+  }
+}
+
+menu();
