@@ -44,67 +44,16 @@ const cadastrarDoador = () => {
   const tipoSanguineo = prompt("Tipo Sanguíneo").toUpperCase();
   const ultimaDoacao = prompt("Última Doação");
 
-  const doador = {
-    nome: nome,
-    idade: idade,
-    peso: peso,
-    tipoSanguineo: tipoSanguineo,
-    ultimaDoacao: ultimaDoacao,
-  };
-
-  console.log(doador);
-  arrayDoadores.push(doador);
-  menu();
-};
-//
-
-const listarDoadores = () => {
-  let lista = `
-  --------------------
-LISTAGEM DE DOADORES:
---------------------
-NOME             | IDADE | PESO | TIPO SANGUÍNEO | ÚLTIMA DOAÇÃO
------------------------------------------------------------------
-
-`;
-
-  for (doador of arrayDoadores) {
-    lista += `${doador.nome.padEnd(20)}   | ${doador.idade.padEnd(5)}  | ${doador.peso.padEnd(5)}  | ${doador.tipoSanguineo.padEnd(5)}  | ${doador.ultimaDoacao.padEnd(24)} \n`;
-  }
-
-  lista += `-------------------------------------------------------------`
-  prompt(lista);
-  menu();
-};
- 
-const buscarTipoSangue = () => {
-
-const buscar = prompt("Buscar tipo sanguineo:")
-  const listagem = []
-
-  for(let doador of arrayDoadores){
-    if(doador.tipoSanguineo.toUpperCase() === buscar.toUpperCase()){
-
-    
-    listagem.push(doador)
+    const doador = {
+        nome: nome,
+        idade: idade,
+        peso: peso,
+        tipoSanguineo: tipoSanguineo,
+        ultimaDoacao: ultimaDoacao,
     }
-    let lista = `
-  --------------------
-LISTAGEM DE DOADORES:
---------------------
-NOME             | IDADE | PESO | TIPO SANGUÍNEO | ÚLTIMA DOAÇÃO
------------------------------------------------------------------
 
-`;
-
-  for (doador of arrayDoadores) {
-    lista += `${doador.nome.padEnd(20)}   | ${doador.idade.padEnd(5)}  | ${doador.peso.padE(5)}  | ${doador.tipoSanguineo.padEnd(5)}  | ${doador.ultimaDoacao.padEnd(24)} \n`;
-  }
-
-  lista += `-------------------------------------------------------------`
-  prompt(lista);
-  menu();
-  }
+    console.log(doador)
+    arrayDoadores.push(doador)
+    menu()
 }
-
-menu();
+//
